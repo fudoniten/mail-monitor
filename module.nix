@@ -1,13 +1,13 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.services.mail-monitor;
+  cfg = config.fudo.services.mail-monitor;
 
   # Build the mail-monitor package
   mail-monitor = pkgs.callPackage ./package.nix { };
 in
 {
-  options.services.mail-monitor = {
+  options.fudo.services.mail-monitor = {
     enable = lib.mkEnableOption "mail server monitoring";
 
     interval = lib.mkOption {
